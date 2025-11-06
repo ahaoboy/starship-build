@@ -45,7 +45,7 @@ jobs:
           bin: starship
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           target: ${{ matrix.target }}
-          RUSTFLAGS: "-C opt-level=3 -C strip=symbols -C codegen-units=1 -C debuginfo=0 -C target-feature=+crt-static"
+          RUSTFLAGS: "-C opt-level=3 -C strip=symbols -C codegen-units=1 -C debuginfo=0"
           tag: nightly
           allowUpdates: true
           no-default-features: true
