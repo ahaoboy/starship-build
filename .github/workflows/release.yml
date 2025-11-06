@@ -20,7 +20,6 @@ jobs:
             os: macos-latest
           - target: x86_64-pc-windows-msvc
             os: windows-latest
-            RUSTFLAGS: -C target-feature=+crt-static
           - target: x86_64-pc-windows-gnu
             os: windows-latest
           # - target: arm64ec-pc-windows-msvc
@@ -46,7 +45,7 @@ jobs:
           bin: starship
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           target: ${{ matrix.target }}
-          RUSTFLAGS: ${{ matrix.RUSTFLAGS }}
+          RUSTFLAGS: "-C opt-level=3 -C strip=symbols -C codegen-units=1 -C debuginfo=0 -C target-feature=+crt-static"
           tag: nightly
           allowUpdates: true
           no-default-features: true
